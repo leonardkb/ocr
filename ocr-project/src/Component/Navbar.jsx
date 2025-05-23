@@ -1,6 +1,6 @@
 // Navbar.jsx
 import  { useState } from "react";
-
+import { Link } from "react-router-dom";
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -9,17 +9,18 @@ function Navbar() {
   };
 
   return (
-    <nav className="w-full bg-blue-500 p-4 text-white flex justify-between items-center fixed top-0 left-0 z-50 shadow-md">
-      <h1 className="text-2xl font-bold hover:text-gray-200">Mark Down </h1>
+    <nav className="w-full bg-gray-2000 p-7 text-white flex justify-between
+     items-center fixed top-0 left-0 z-50 shadow-md">
+      <h1 className="text-2xl font-bold text-black hover:text-gray-200">MarkSnap</h1>
       {/* Desktop and larger screens */}
-      <div className="hidden md:flex space-x-8 text-xl">
-        <a href="#" className="hover:text-gray-200">Home</a>
-        <a href="#" className="hover:text-gray-200">About</a>
+      <div className="hidden md:flex space-x-8 text-xl text-black">
+        <Link to="/" className="block text-black py-2 ">Home</Link>
+        <Link to="/about" className="block text-black py-2 ">About</Link>
       </div>
       
       {/* Mobile view (hamburger icon) */}
       <button
-        className="md:hidden text-white focus:outline-none"
+        className="md:hidden text-black focus:outline-none"
         onClick={toggleMenu}
       >
         <svg
@@ -40,10 +41,10 @@ function Navbar() {
 
       {/* Mobile menu */}
       <div
-        className={`md:hidden absolute top-16 left-0 w-full bg-blue-300 p-4 ${isMenuOpen ? "block" : "hidden"}`}
+        className={`md:hidden absolute top-16 left-0 w-full bg-gray-200 rounded-b-lg p-4 ${isMenuOpen ? "block" : "hidden"}`}
       >
-        <a href="#" className="block text-white py-2 hover:bg-blue-600">Home</a>
-        <a href="#" className="block text-white py-2 hover:bg-blue-600">About</a>
+        <Link to="/" className="block text-black py-2 ">Home</Link>
+        <Link to="/about" className="block text-black py-2 ">About</Link>
       </div>
     </nav>
   );
